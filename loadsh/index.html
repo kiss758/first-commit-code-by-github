@@ -18,6 +18,14 @@
 
         let number = [2,  4,  6, 8,  20]
 
+
+        const repeatArr = (arr)=>[...new Set(arr)].length !== arr.length;
+
+        const result1 = repeatArr([1,2,3]);
+        const result2 = repeatArr([3,3,3]);
+
+        console.log(result1);
+        console.log(result2);
         
 
 

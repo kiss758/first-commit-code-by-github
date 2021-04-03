@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    #container {
+      height: 3000px;
+      width: auto;
+    }
+    #foo {
+      margin-top: 200px;
+      float: right;
+      height: 1200px;
+      width: 500px;
+      background-color: #777;
+      display: block;
+      border-bottom: red 10px solid;
+      border-top: yellow 10px solid;
+    }
+    .rightWrap {
+      float: right;
+      width: 500px;
+    }   
+  </style>
+</head>
+ 
+<body>
+  <div id="container">    
+    <div class="rightWrap">
+      <div id="foo">来固定我吧</div>
+    </div>
+  </div>
+ 
+  <script type="text/javascript">
+    
+    let fixDiv = document.querySelector('#foo');
+    let viewHeight = document.documentElement.clientHeight;
+    let bodyScrollHeight = document.body.scrollTop;
+    let fixDivBottom = bodyScrollHeight + fixDiv.getBoundingClientRect().bottom;
+    let fixDivTop = bodyScrollHeight + fixDiv.getBoundingClientRect().top;
+    let dis = fixDivBottom - viewHeight;
+ 
+    let winScroll = (e) => {
+ 
+      bodyScrollHeight = document.body.scrollTop;
+ 
+      if (dis > 0) {
+        if (bodyScrollHeight > dis) {
+          fixDiv.style.position = "fixed";
+          fixDiv.style.top = -dis + "px";
+        } else {
+          fixDiv.style.position = "static";
+          fixDiv.style.top = null;
+        }
+      } else {
+        if(bodyScrollHeight > fixDivTop){
+          fixDiv.style.position = "fixed";
+          fixDiv.style.top = -fixDivTop + "px";
+        }else{
+          fixDiv.style.position = "static";
+          fixDiv.style.top = null;
+        }
+      }
+    }
+ 
+    window.addEventListener('scroll', winScroll);
+  </script>
+</body>
+ 
+</html>

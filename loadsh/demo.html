@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue学习演示</title>
+    <link rel="stylesheet" href="css/animate.css-4.1.1/animate.css">
+    <script src="js/vue.js"></script>
+</head>
+<style>
+  
+</style>
+<body>
+
+    <div id="id">
+      
+    </div>
+
+
+    <script>
+
+        // https://www.bilibili.com/video/av96238204?p=8&spm_id_from=pageDriver typescript
+        // https://www.bilibili.com/video/BV1m741137Q5?p=6&spm_id_from=pageDriver  vue视屏
+
+        let vm = new Vue({
+            el: '#id',
+            data() {
+                return {
+                    word: 'hello world',
+                    answer: 'I cannot give you an answer until you ask a question!'
+                }
+            },
+            methods: {
+
+            },
+            computed: {
+                reverseString: function () {
+                    return this.word.split('').reverse().join('')
+                }
+            },
+            watch: {
+
+             
+
+            },
+
+        })
+    </script>
+
+</body>
+
+</html>
